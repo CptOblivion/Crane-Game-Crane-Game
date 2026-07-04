@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://c7a2e8x8xj4br"]
+
+[ext_resource type="Script" uid="uid://d0oc1mp2a3pfu" path="res://Scripts/crane_controller.gd" id="1_sk7lv"]
+
+[node name="Node2D" type="Node2D" unique_id=1430497347]
+
+[node name="ClawBase" type="RigidBody2D" parent="." unique_id=1702327789 node_paths=PackedStringArray("node_head", "node_claw_L", "node_claw_R")]
+position = Vector2(1079, 37)
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_sk7lv")
+node_head = NodePath("Claw")
+node_claw_L = NodePath("Claw/ClawLeft")
+node_claw_R = NodePath("Claw/ClawRight")
+lower_height = 400.0
+travel_speed = 200.0
+timing_lower_speed = 200.0
+timing_lowered_pause_time = 0.5
+timing_grab_time = 1.0
+timing_grabbed_pause_time = 0.5
+timing_return_raise_speed = 200.0
+timing_return_travel_speed = 200.0
+timing_returned_pause_time = 0.8
+timing_drop_time = 0.5
+metadata/_custom_type_script = "uid://d0oc1mp2a3pfu"
+
+[node name="Claw" type="RigidBody2D" parent="ClawBase" unique_id=8670533]
+position = Vector2(0, 48)
+linear_damp = 3.0
+
+[node name="ClawHinge" type="ColorRect" parent="ClawBase/Claw" unique_id=1772636383]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 7.9999924
+rotation = 0.7853982
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="ClawRight" type="Node2D" parent="ClawBase/Claw" unique_id=28947877]
+
+[node name="ColorRect" type="ColorRect" parent="ClawBase/Claw/ClawRight" unique_id=321665365]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 42.0
+offset_bottom = 6.0
+pivot_offset = Vector2(6, 0)
+pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="ColorRect2" type="ColorRect" parent="ClawBase/Claw/ClawRight" unique_id=943158437]
+offset_left = 30.0
+offset_top = -6.0
+offset_right = 78.0
+offset_bottom = 6.0
+rotation = 1.5707964
+pivot_offset = Vector2(6, 0)
+pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="ClawLeft" type="Node2D" parent="ClawBase/Claw" unique_id=822327992]
+
+[node name="ColorRect" type="ColorRect" parent="ClawBase/Claw/ClawLeft" unique_id=1287278650]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 42.0
+offset_bottom = 6.0
+rotation = 3.1415927
+pivot_offset = Vector2(6, 0)
+pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="ColorRect2" type="ColorRect" parent="ClawBase/Claw/ClawLeft" unique_id=1689643815]
+offset_left = -42.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+rotation = 1.5707964
+pivot_offset = Vector2(6, 0)
+pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="ClawBaseSprite" type="ColorRect" parent="ClawBase" unique_id=995896107]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
