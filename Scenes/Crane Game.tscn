@@ -2,32 +2,34 @@
 
 [ext_resource type="Script" uid="uid://d0oc1mp2a3pfu" path="res://Scripts/crane_controller.gd" id="1_sk7lv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnh25"]
+size = Vector2(48, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gnh25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqpfe"]
+size = Vector2(1171, 105)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1u34"]
+
 [node name="Node2D" type="Node2D" unique_id=1430497347]
 
-[node name="ClawBase" type="RigidBody2D" parent="." unique_id=1702327789 node_paths=PackedStringArray("node_head", "node_claw_L", "node_claw_R")]
+[node name="ClawBase" type="RigidBody2D" parent="." unique_id=1702327789 node_paths=PackedStringArray("node_head", "node_claw_r", "node_claw_l")]
 position = Vector2(1079, 37)
 lock_rotation = true
 freeze = true
 freeze_mode = 1
 script = ExtResource("1_sk7lv")
 node_head = NodePath("Claw")
-node_claw_L = NodePath("Claw/ClawLeft")
-node_claw_R = NodePath("Claw/ClawRight")
-lower_height = 400.0
-travel_speed = 200.0
-timing_lower_speed = 200.0
-timing_lowered_pause_time = 0.5
-timing_grab_time = 1.0
-timing_grabbed_pause_time = 0.5
-timing_return_raise_speed = 200.0
-timing_return_travel_speed = 200.0
-timing_returned_pause_time = 0.8
-timing_drop_time = 0.5
+node_claw_r = NodePath("Claw/ClawRight")
+node_claw_l = NodePath("Claw/ClawLeft")
 metadata/_custom_type_script = "uid://d0oc1mp2a3pfu"
 
 [node name="Claw" type="RigidBody2D" parent="ClawBase" unique_id=8670533]
 position = Vector2(0, 48)
-linear_damp = 3.0
+lock_rotation = true
+linear_damp_mode = 1
+linear_damp = 5.0
 
 [node name="ClawHinge" type="ColorRect" parent="ClawBase/Claw" unique_id=1772636383]
 offset_left = -8.0
@@ -36,8 +38,18 @@ offset_right = 8.0
 offset_bottom = 7.9999924
 rotation = 0.7853982
 pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(0.14044744, 0.14044744, 0.14044744, 1)
 
-[node name="ClawRight" type="Node2D" parent="ClawBase/Claw" unique_id=28947877]
+[node name="ClawRight" type="RigidBody2D" parent="ClawBase/Claw" unique_id=2126470344]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClawBase/Claw/ClawRight" unique_id=1125625462]
+position = Vector2(18, 0)
+shape = SubResource("RectangleShape2D_gnh25")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ClawBase/Claw/ClawRight" unique_id=1416312624]
+position = Vector2(36, 18)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_gnh25")
 
 [node name="ColorRect" type="ColorRect" parent="ClawBase/Claw/ClawRight" unique_id=321665365]
 offset_left = -6.0
@@ -46,6 +58,7 @@ offset_right = 42.0
 offset_bottom = 6.0
 pivot_offset = Vector2(6, 0)
 pivot_offset_ratio = Vector2(0, 0.5)
+color = Color(0.6603956, 0.66039556, 0.66039556, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="ClawBase/Claw/ClawRight" unique_id=943158437]
 offset_left = 30.0
@@ -55,8 +68,19 @@ offset_bottom = 6.0
 rotation = 1.5707964
 pivot_offset = Vector2(6, 0)
 pivot_offset_ratio = Vector2(0, 0.5)
+color = Color(0.65882355, 0.65882355, 0.65882355, 1)
 
-[node name="ClawLeft" type="Node2D" parent="ClawBase/Claw" unique_id=822327992]
+[node name="ClawLeft" type="RigidBody2D" parent="ClawBase/Claw" unique_id=943535875]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClawBase/Claw/ClawLeft" unique_id=1369022467]
+position = Vector2(-18, 0)
+rotation = -3.1415925
+shape = SubResource("RectangleShape2D_gnh25")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ClawBase/Claw/ClawLeft" unique_id=1059366951]
+position = Vector2(-36, 18)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_gnh25")
 
 [node name="ColorRect" type="ColorRect" parent="ClawBase/Claw/ClawLeft" unique_id=1287278650]
 offset_left = -6.0
@@ -69,12 +93,15 @@ pivot_offset_ratio = Vector2(0, 0.5)
 
 [node name="ColorRect2" type="ColorRect" parent="ClawBase/Claw/ClawLeft" unique_id=1689643815]
 offset_left = -42.0
-offset_top = -6.0
+offset_top = -6.0000005
 offset_right = 6.0
-offset_bottom = 6.0
+offset_bottom = 5.9999995
 rotation = 1.5707964
 pivot_offset = Vector2(6, 0)
 pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClawBase/Claw" unique_id=579493758]
+shape = SubResource("CircleShape2D_gnh25")
 
 [node name="ClawBaseSprite" type="ColorRect" parent="ClawBase" unique_id=995896107]
 anchors_preset = 8
@@ -89,3 +116,25 @@ offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=130705668]
+position = Vector2(4, 562)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1994467480]
+position = Vector2(572.5, 22)
+shape = SubResource("RectangleShape2D_vqpfe")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D" unique_id=95440]
+offset_left = -587.5
+offset_top = -53.0
+offset_right = 586.5
+offset_bottom = 54.0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=35476686]
+position = Vector2(910, 348)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1090593264]
+shape = SubResource("RectangleShape2D_n1u34")
+
+[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D" unique_id=1509440688]
+polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
