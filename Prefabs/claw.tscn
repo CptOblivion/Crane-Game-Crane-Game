@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://dwucifly5eghi"]
+
+[ext_resource type="Script" uid="uid://d0oc1mp2a3pfu" path="res://Scripts/crane_controller.gd" id="1_lns8u"]
+[ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="2_w2nsd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnh25"]
+size = Vector2(48, 12)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cuh28"]
+radius = 6.0
+height = 48.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vqpfe"]
+radius = 6.0
+height = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gnh25"]
+
+[node name="ClawBase" type="RigidBody2D" unique_id=757047534 node_paths=PackedStringArray("node_head", "node_claw_r", "node_claw_l")]
+physics_interpolation_mode = 2
+mass = 0.1
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+continuous_cd = 2
+script = ExtResource("1_lns8u")
+node_head = NodePath("Claw")
+node_claw_r = NodePath("Claw/ClawRight")
+node_claw_l = NodePath("Claw/ClawLeft")
+metadata/_custom_type_script = "uid://d0oc1mp2a3pfu"
+
+[node name="Claw" type="RigidBody2D" parent="." unique_id=1214754592]
+position = Vector2(0, 48)
+continuous_cd = 2
+linear_damp_mode = 1
+linear_damp = 5.0
+script = ExtResource("2_w2nsd")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="ClawHinge" type="ColorRect" parent="Claw" unique_id=863951629]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 7.9999924
+rotation = 0.7853982
+pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(0.14044744, 0.14044744, 0.14044744, 1)
+
+[node name="ClawRight" type="RigidBody2D" parent="Claw" unique_id=1384130584]
+continuous_cd = 2
+script = ExtResource("2_w2nsd")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Claw/ClawRight" unique_id=1685547711]
+position = Vector2(18, 0)
+shape = SubResource("RectangleShape2D_gnh25")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Claw/ClawRight" unique_id=1324772677]
+position = Vector2(36, 18)
+shape = SubResource("CapsuleShape2D_cuh28")
+
+[node name="ColorRect" type="ColorRect" parent="Claw/ClawRight" unique_id=744846438]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 42.0
+offset_bottom = 6.0
+pivot_offset = Vector2(6, 0)
+pivot_offset_ratio = Vector2(0, 0.5)
+color = Color(0.6603956, 0.66039556, 0.66039556, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Claw/ClawRight" unique_id=94699498]
+offset_left = 30.0
+offset_top = -6.0
+offset_right = 78.0
+offset_bottom = 6.0
+rotation = 1.5707964
+pivot_offset = Vector2(6, 0)
+pivot_offset_ratio = Vector2(0, 0.5)
+color = Color(0.65882355, 0.65882355, 0.65882355, 1)
+
+[node name="ClawLeft" type="RigidBody2D" parent="Claw" unique_id=451796077]
+continuous_cd = 2
+script = ExtResource("2_w2nsd")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Claw/ClawLeft" unique_id=172411611]
+position = Vector2(-18, 0)
+rotation = -3.1415925
+shape = SubResource("RectangleShape2D_gnh25")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Claw/ClawLeft" unique_id=1706646826]
+position = Vector2(-36, 18)
+shape = SubResource("CapsuleShape2D_vqpfe")
+
+[node name="ColorRect" type="ColorRect" parent="Claw/ClawLeft" unique_id=77637806]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 42.0
+offset_bottom = 6.0
+rotation = 3.1415927
+pivot_offset = Vector2(6, 0)
+pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="ColorRect2" type="ColorRect" parent="Claw/ClawLeft" unique_id=1727421860]
+offset_left = -42.0
+offset_top = -6.0000005
+offset_right = 6.0
+offset_bottom = 5.9999995
+rotation = 1.5707964
+pivot_offset = Vector2(6, 0)
+pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Claw" unique_id=1410311813]
+shape = SubResource("CircleShape2D_gnh25")
+
+[node name="ClawBaseSprite" type="ColorRect" parent="." unique_id=1346891769]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)

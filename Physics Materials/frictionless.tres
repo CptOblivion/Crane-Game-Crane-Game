@@ -1,0 +1,4 @@
+[gd_resource type="PhysicsMaterial" format=3 uid="uid://64o6ywtgty4s"]
+
+[resource]
+resource_name = "frictionless"
