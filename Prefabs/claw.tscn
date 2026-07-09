@@ -27,6 +27,7 @@ script = ExtResource("1_lns8u")
 node_head = NodePath("../Claw")
 node_claw_r = NodePath("../ClawRight")
 node_claw_l = NodePath("../ClawLeft")
+claw_strength = 80000.0
 metadata/_custom_type_script = "uid://d0oc1mp2a3pfu"
 
 [node name="ClawBaseSprite" type="ColorRect" parent="ClawBase" unique_id=1346891769]

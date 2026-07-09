@@ -25,7 +25,19 @@ enum State {
 @export var travel_speed: float = 200.0
 @export var lower_height: float = 400.0
 @export var cable_stiffness: float = 100.0
-@export var claw_strength: float = 100000.0
+
+var _claw_strength: float = 80000.0
+@export var claw_strength: float:
+	get:
+		return _claw_strength
+	set(val):
+		_claw_strength = val
+		# Update components
+		if claw_l_joint != null:
+			claw_l_joint.motor_position_stiffness = _claw_strength
+		if claw_r_joint != null:
+			claw_r_joint.motor_position_stiffness = _claw_strength
+
 
 @export_group("Timing", "timing_")
 @export var timing_lower_speed: float = 200.0
@@ -118,8 +130,6 @@ func clamped_lerp(a: float, b: float, t: float) -> float:
 
 func set_chain_length(length: float) -> void:
 	chain.distance = length
-	# chain.length = length
-	# chain.rest_length = length
 
 func setup_pin_joint(node_b: RigidBody2D, node_a: RigidBody2D, closed_angle: float, open_angle: float) -> RapierPinJoint2D:
 	var joint = RapierPinJoint2D.new()
