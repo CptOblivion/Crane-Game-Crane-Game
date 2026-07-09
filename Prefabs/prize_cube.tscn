@@ -10,8 +10,8 @@ continuous_cd = 1
 script = ExtResource("1_sbivw")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=303426727]
-shape = SubResource("RectangleShape2D_n1u34")
-
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1646245562]
 polygon = PackedVector2Array(-10, -10, -10, 10, 10, 10, 10, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=303426727]
+shape = SubResource("RectangleShape2D_n1u34")

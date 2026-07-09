@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dwucifly5eghi" path="res://Prefabs/claw.tscn" id="1_lm8dk"]
 [ext_resource type="PackedScene" uid="uid://ds38hbwfvqyoy" path="res://Prefabs/prize_cube.tscn" id="2_d5qak"]
+[ext_resource type="PackedScene" uid="uid://d28rhgxjk0pb8" path="res://Prefabs/prize_ball.tscn" id="3_d5qak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqpfe"]
 size = Vector2(1171, 105)
@@ -106,3 +107,45 @@ position = Vector2(714, 290)
 
 [node name="PrizeCube27" parent="Prizes" unique_id=149854153 instance=ExtResource("2_d5qak")]
 position = Vector2(650, 279)
+
+[node name="PrizeCube28" parent="Prizes" unique_id=1787742128 instance=ExtResource("3_d5qak")]
+position = Vector2(517, 404)
+
+[node name="PrizeCube29" parent="Prizes" unique_id=1973476707 instance=ExtResource("3_d5qak")]
+position = Vector2(568, 351)
+
+[node name="PrizeCube30" parent="Prizes" unique_id=1371198912 instance=ExtResource("3_d5qak")]
+position = Vector2(590, 277)
+
+[node name="PrizeCube31" parent="Prizes" unique_id=1099877801 instance=ExtResource("3_d5qak")]
+position = Vector2(683, 290)
+
+[node name="PrizeCube32" parent="Prizes" unique_id=989210805 instance=ExtResource("3_d5qak")]
+position = Vector2(717, 330)
+
+[node name="PrizeCube33" parent="Prizes" unique_id=2059243231 instance=ExtResource("3_d5qak")]
+position = Vector2(619, 347)
+
+[node name="PrizeCube34" parent="Prizes" unique_id=1823301993 instance=ExtResource("3_d5qak")]
+position = Vector2(621, 246)
+
+[node name="PrizeCube35" parent="Prizes" unique_id=159004607 instance=ExtResource("3_d5qak")]
+position = Vector2(536, 320)
+
+[node name="PrizeCube36" parent="Prizes" unique_id=1179124764 instance=ExtResource("3_d5qak")]
+position = Vector2(539, 250)
+
+[node name="PrizeCube37" parent="Prizes" unique_id=2124839634 instance=ExtResource("3_d5qak")]
+position = Vector2(621, 406)
+
+[node name="PrizeCube38" parent="Prizes" unique_id=1326758078 instance=ExtResource("3_d5qak")]
+position = Vector2(652, 454)
+
+[node name="PrizeCube39" parent="Prizes" unique_id=578640949 instance=ExtResource("3_d5qak")]
+position = Vector2(663, 371)
+
+[node name="PrizeCube40" parent="Prizes" unique_id=900659684 instance=ExtResource("3_d5qak")]
+position = Vector2(719, 255)
+
+[node name="PrizeCube41" parent="Prizes" unique_id=1502824367 instance=ExtResource("3_d5qak")]
+position = Vector2(690, 225)

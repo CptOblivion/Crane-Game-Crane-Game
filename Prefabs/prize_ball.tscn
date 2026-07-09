@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d28rhgxjk0pb8"]
+
+[ext_resource type="Script" uid="uid://unwhnooi7g2c" path="res://addons/godot-rapier2d/custom_nodes/rapier_rigid_body_2d.gd" id="1_i3odf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7v1ov"]
+
+[node name="PrizeCube" type="RigidBody2D" unique_id=1787742128]
+mass = 0.1
+continuous_cd = 1
+script = ExtResource("1_i3odf")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1646245562]
+polygon = PackedVector2Array(-7, -7, -10, 0, -7, 7, 0, 10, 7, 7, 10, 0, 7, -7, 0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=303426727]
+shape = SubResource("CircleShape2D_7v1ov")

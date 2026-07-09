@@ -59,15 +59,9 @@ func _ready() -> void:
 	chain.root = self
 	chain.end = node_head
 	chain.distance = claw_home
-	# chain = RapierDampedSpringJoint2D.new()
-	# add_child(chain)
-	# chain.node_a = get_path()
-	# chain.node_b = node_head.get_path()
-	# chain.stiffness = 640
-	# set_chain_length(claw_home)
 
-	claw_r_joint = setup_pin_joint(node_head, node_claw_r, CLAW_CLOSED_ANGLE, CLAW_OPEN_ANGLE)
-	claw_l_joint = setup_pin_joint(node_head, node_claw_l, -CLAW_CLOSED_ANGLE, -CLAW_OPEN_ANGLE)
+	claw_r_joint = setup_pin_joint(node_head, node_claw_r, -CLAW_CLOSED_ANGLE, -CLAW_OPEN_ANGLE)
+	claw_l_joint = setup_pin_joint(node_head, node_claw_l, CLAW_CLOSED_ANGLE, CLAW_OPEN_ANGLE)
 
 	node_claw_r.add_collision_exception_with(node_claw_l)
 
@@ -127,7 +121,7 @@ func set_chain_length(length: float) -> void:
 	# chain.length = length
 	# chain.rest_length = length
 
-func setup_pin_joint(node_a: RigidBody2D, node_b: RigidBody2D, closed_angle: float, open_angle: float) -> RapierPinJoint2D:
+func setup_pin_joint(node_b: RigidBody2D, node_a: RigidBody2D, closed_angle: float, open_angle: float) -> RapierPinJoint2D:
 	var joint = RapierPinJoint2D.new()
 	node_a.add_child(joint)
 	joint.node_a = node_a.get_path()
@@ -140,5 +134,5 @@ func setup_pin_joint(node_a: RigidBody2D, node_b: RigidBody2D, closed_angle: flo
 	return joint
 
 func set_claw_angle(angle: float) -> void:
-	claw_r_joint.motor_position_target_angle = angle
-	claw_l_joint.motor_position_target_angle = - angle
+	claw_r_joint.motor_position_target_angle = - angle
+	claw_l_joint.motor_position_target_angle = angle
