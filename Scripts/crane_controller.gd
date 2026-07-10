@@ -1,5 +1,5 @@
 class_name CraneController
-extends RigidBody2D
+extends Node2D
 
 const CLAW_CLOSED_ANGLE: float = deg_to_rad(40)
 const CLAW_OPEN_ANGLE: float = 0
@@ -18,26 +18,16 @@ enum State {
 
 # TODO: look into RapierRigidBody2D instead
 @export_group("Nodes", "node_")
+@export var node_base: RigidBody2D
 @export var node_head: RigidBody2D
 @export var node_claw_r: RigidBody2D
 @export var node_claw_l: RigidBody2D
+@export var node_bounds: Marker2D
 
 @export var travel_speed: float = 200.0
-@export var lower_height: float = 400.0
 @export var cable_stiffness: float = 100.0
 
-var _claw_strength: float = 80000.0
-@export var claw_strength: float:
-	get:
-		return _claw_strength
-	set(val):
-		_claw_strength = val
-		# Update components
-		if claw_l_joint != null:
-			claw_l_joint.motor_position_stiffness = _claw_strength
-		if claw_r_joint != null:
-			claw_r_joint.motor_position_stiffness = _claw_strength
-
+@export var claw_strength: float = 80000.0
 
 @export_group("Timing", "timing_")
 @export var timing_lower_speed: float = 200.0
@@ -48,8 +38,7 @@ var _claw_strength: float = 80000.0
 @export var timing_return_travel_speed: float = 200.0
 @export var timing_returned_pause_time: float = 1.5
 @export var timing_drop_time: float = 0.5
-
-@export var travel_limit: float = 500.0 # TODO: set a rect in editor, get the origin, limit, and drop height from the rect
+@export var timingg_return_slide_delay = 1.5
 
 var state: State = State.controllable
 # var chain: RapierDampedSpringJoint2D
@@ -63,12 +52,12 @@ var claw_home: float
 var state_timer: float = 0.0
 
 func _ready() -> void:
-	origin = position
+	origin = node_base.position
 	claw_home = node_head.position.y
 
 	chain = LimitDistanceJoint.new()
 	add_child(chain)
-	chain.root = self
+	chain.root = node_base
 	chain.end = node_head
 	chain.distance = claw_home
 
@@ -84,13 +73,18 @@ func _physics_process(delta: float) -> void:
 	match state:
 		State.controllable:
 			var input_direction = Input.get_axis("move_left", "move_right")
-			move_and_collide(Vector2(input_direction * travel_speed * delta, 0))
+			var vel = input_direction * travel_speed * delta
+			if node_base.position.x + vel > 0:
+				vel = node_base.position.x
+			elif node_base.position.x + vel < node_bounds.position.x:
+				vel = node_bounds.position.x - node_base.position.x
+			node_base.move_and_collide(Vector2(vel, 0))
 			if Input.is_action_just_pressed("drop"):
 				set_state(State.lowering)
 		State.lowering:
 			set_chain_length(chain.distance + timing_lower_speed * delta)
-			if chain.distance >= claw_home + lower_height:
-				set_chain_length(claw_home + lower_height)
+			if chain.distance >= claw_home + node_bounds.position.y:
+				set_chain_length(claw_home + node_bounds.position.y)
 				set_state(State.lowered)
 		State.lowered:
 			if state_timer >= timing_lowered_pause_time:
@@ -106,11 +100,12 @@ func _physics_process(delta: float) -> void:
 			set_chain_length(chain.distance - timing_return_raise_speed * delta)
 			if chain.distance <= claw_home:
 				set_chain_length(claw_home)
-			move_and_collide(Vector2(timing_return_travel_speed * delta, 0))
-			if position.x >= origin.x:
-				position.x = origin.x
-			if position == origin and chain.distance == claw_home:
-				set_state(State.returned)
+			if state_timer > timingg_return_slide_delay:
+				node_base.move_and_collide(Vector2(timing_return_travel_speed * delta, 0))
+				if node_base.position.x >= origin.x:
+					node_base.position.x = origin.x
+				if node_base.position == origin and chain.distance == claw_home:
+					set_state(State.returned)
 		State.returned:
 			if state_timer >= timing_returned_pause_time:
 				set_state(State.dropping)

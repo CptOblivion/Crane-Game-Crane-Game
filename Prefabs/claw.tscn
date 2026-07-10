@@ -14,21 +14,26 @@ friction = 0.05
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lns8u"]
 
-[node name="Node2D" type="Node2D" unique_id=1098219714]
+[node name="Node2D" type="Node2D" unique_id=1453912510 node_paths=PackedStringArray("node_base", "node_head", "node_claw_r", "node_claw_l", "node_bounds")]
+script = ExtResource("1_lns8u")
+node_base = NodePath("ClawBase")
+node_head = NodePath("Claw")
+node_claw_r = NodePath("ClawRight")
+node_claw_l = NodePath("ClawLeft")
+node_bounds = NodePath("Marker2D")
+metadata/_custom_type_script = "uid://d0oc1mp2a3pfu"
 
-[node name="ClawBase" type="RigidBody2D" parent="." unique_id=757047534 node_paths=PackedStringArray("node_head", "node_claw_r", "node_claw_l")]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1840563789]
+
+[node name="ClawBase" type="RigidBody2D" parent="." unique_id=825254119]
 physics_interpolation_mode = 2
 mass = 0.01
 lock_rotation = true
 freeze = true
 freeze_mode = 1
 continuous_cd = 2
-script = ExtResource("1_lns8u")
-node_head = NodePath("../Claw")
-node_claw_r = NodePath("../ClawRight")
-node_claw_l = NodePath("../ClawLeft")
-claw_strength = 80000.0
-metadata/_custom_type_script = "uid://d0oc1mp2a3pfu"
+script = ExtResource("2_w2nsd")
+metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="ClawBaseSprite" type="ColorRect" parent="ClawBase" unique_id=1346891769]
 anchors_preset = 8
