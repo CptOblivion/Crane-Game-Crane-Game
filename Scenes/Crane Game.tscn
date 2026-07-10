@@ -4,29 +4,54 @@
 [ext_resource type="PackedScene" uid="uid://ds38hbwfvqyoy" path="res://Prefabs/prize_cube.tscn" id="2_d5qak"]
 [ext_resource type="PackedScene" uid="uid://d28rhgxjk0pb8" path="res://Prefabs/prize_ball.tscn" id="3_d5qak"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqpfe"]
-size = Vector2(1920, 80)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gnh25"]
+normal = Vector2(0, -10)
 
 [node name="Node2D" type="Node2D" unique_id=1430497347]
 
-[node name="ClawBase" parent="." unique_id=757047534 instance=ExtResource("1_lm8dk")]
-position = Vector2(1728, 265)
+[node name="Background" type="Node2D" parent="." unique_id=302695631]
+scale = Vector2(0.6, 0.6)
 
-[node name="Marker2D" parent="ClawBase" index="0" unique_id=1840563789]
-position = Vector2(-1536, 603)
+[node name="Background" type="Parallax2D" parent="Background" unique_id=1865071567]
+scale = Vector2(1.6666666, 1.6666666)
+scroll_scale = Vector2(0.5, 0.5)
 
-[node name="Floor" type="StaticBody2D" parent="." unique_id=130705668]
-position = Vector2(0, 913)
+[node name="Back Wall" type="Polygon2D" parent="Background/Background" unique_id=1644329619]
+scale = Vector2(0.6, 0.6)
+color = Color(0.16445974, 0.16445976, 0.16445974, 1)
+polygon = PackedVector2Array(-960, -540, -960, 540, 960, 540, 960, -540)
 
-[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=95440]
-offset_right = 1920.0
-offset_bottom = 80.0
+[node name="WallL" type="Polygon2D" parent="Background" unique_id=1412120864]
+position = Vector2(-960, 2.0918378e-12)
+rotation = 1.5707964
+color = Color(0.16445974, 0.16445976, 0.16445974, 1)
+polygon = PackedVector2Array(-540, 0, 540, 0, 900, 840, -900, 840.00006)
+vertex_colors = PackedColorArray(0.2509804, 0.2509804, 0.2509804, 1, 0.2509804, 0.2509804, 0.2509804, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1994467480]
-position = Vector2(960, 40)
-shape = SubResource("RectangleShape2D_vqpfe")
+[node name="WallR" type="Polygon2D" parent="Background" unique_id=201093487]
+position = Vector2(960, -3.1529152e-12)
+rotation = 1.5707964
+scale = Vector2(1, -1)
+color = Color(0.16445974, 0.16445976, 0.16445974, 1)
+polygon = PackedVector2Array(-540, 0, 540, 0, 900, 840, -900, 840.00006)
+vertex_colors = PackedColorArray(0.2509804, 0.2509804, 0.2509804, 1, 0.2509804, 0.2509804, 0.2509804, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 
-[node name="Prizes" type="Node" parent="." unique_id=1293461928]
+[node name="Floor" type="Polygon2D" parent="Background" unique_id=1840184428]
+position = Vector2(0, 539.99994)
+color = Color(0.16445974, 0.16445976, 0.16445974, 1)
+polygon = PackedVector2Array(960, 0, -960, 0, -1800, 360, 1800, 360)
+vertex_colors = PackedColorArray(0.2509804, 0.2509804, 0.2509804, 1, 0.2509804, 0.2509804, 0.2509804, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[node name="Ceiling" type="Polygon2D" parent="Background" unique_id=1029569585]
+position = Vector2(0, -540)
+polygon = PackedVector2Array(-960, 0, 960, 0, 1800, -360, -1800, -360)
+vertex_colors = PackedColorArray(0.2509804, 0.2509804, 0.2509804, 1, 0.2509804, 0.2509804, 0.2509804, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[node name="Foreground" type="Parallax2D" parent="Background" unique_id=1638934832]
+scroll_scale = Vector2(1.5, 1.5)
+
+[node name="Prizes" type="Node2D" parent="." unique_id=1387704370]
+position = Vector2(-960, -540)
 
 [node name="PrizeCube" parent="Prizes" unique_id=596730560 instance=ExtResource("2_d5qak")]
 position = Vector2(1247, 871)
@@ -150,5 +175,33 @@ position = Vector2(1329, 638)
 
 [node name="PrizeCube41" parent="Prizes" unique_id=1502824367 instance=ExtResource("3_d5qak")]
 position = Vector2(1300, 608)
+
+[node name="ClawBase" parent="." unique_id=757047534 instance=ExtResource("1_lm8dk")]
+position = Vector2(730, -275)
+
+[node name="Marker2D" parent="ClawBase" index="0" unique_id=1840563789]
+position = Vector2(-1460, 603)
+
+[node name="ClawBaseSprite" parent="ClawBase/ClawBase" parent_id_path=PackedInt32Array(757047534, 825254119) index="0" unique_id=1346891769]
+metadata/_edit_use_anchors_ = true
+
+[node name="Collision Bounds" type="StaticBody2D" parent="." unique_id=130705668]
+position = Vector2(0, 373)
+
+[node name="Floor" type="CollisionShape2D" parent="Collision Bounds" unique_id=1994467480]
+position = Vector2(0, 40)
+shape = SubResource("WorldBoundaryShape2D_gnh25")
+
+[node name="WallL" type="CollisionShape2D" parent="Collision Bounds" unique_id=634408038]
+position = Vector2(-784, 40)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_gnh25")
+
+[node name="WallR" type="CollisionShape2D" parent="Collision Bounds" unique_id=678807039]
+position = Vector2(784, 40)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_gnh25")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=451880069]
 
 [editable path="ClawBase"]
