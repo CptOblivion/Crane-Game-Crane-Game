@@ -1,9 +1,12 @@
-shader_type spatial;
+shader_type canvas_item;
+
+uniform vec2 CamPos;
 
 void vertex() {
-	// vertex colors to set vertex scroll speeds
-	// 0.5/val for depth
-	// 1/depth for scroll speed
+	vec2 offs = vec2(CamPos.x * COLOR.x * 2.0, CamPos.y * COLOR.y * 2.0);
+	vec2 origin = VERTEX.xy;
+	VERTEX.x = origin.x + offs.x;
+	VERTEX.y = origin.y + offs.y;
 }
 
 void fragment() {

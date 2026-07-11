@@ -1,3 +1,7 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://dt4gfde14yqib"]
 
+[ext_resource type="Shader" uid="uid://prq1r70oepxr" path="res://Shaders/perspective_warp.gdshader" id="1_x4qae"]
+
 [resource]
+shader = ExtResource("1_x4qae")
+shader_parameter/CamPos = Vector2(0, 0)
