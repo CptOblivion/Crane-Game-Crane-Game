@@ -3,7 +3,8 @@ shader_type canvas_item;
 uniform vec2 CamPos;
 
 void vertex() {
-	vec2 offs = vec2(CamPos.x * COLOR.x * 2.0, CamPos.y * COLOR.y * 2.0);
+	float scrollStrength = COLOR.x * 2.0 - 1.0;
+	vec2 offs = CamPos * scrollStrength;
 	vec2 origin = VERTEX.xy;
 	VERTEX.x = origin.x + offs.x;
 	VERTEX.y = origin.y + offs.y;

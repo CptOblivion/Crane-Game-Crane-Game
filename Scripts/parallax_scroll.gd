@@ -2,12 +2,19 @@ extends Camera2D
 
 @export var parallax_material: Material
 @export var parallax_offset: Vector2
+@export var scroll_speed: float
+@export var scroll_target: Node2D
+
+var start_pos: Vector2
+var target_start_pos: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	start_pos = position
+	target_start_pos = scroll_target.position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	parallax_material.set_shader_parameter("CamPos", global_position + parallax_offset)
+	position = start_pos + (scroll_target.position - target_start_pos) * scroll_speed

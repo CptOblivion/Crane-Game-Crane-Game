@@ -15,7 +15,7 @@ position = Vector2(960, 540)
 [node name="Background" type="Node2D" parent="." unique_id=302695631]
 
 [node name="Background" type="Parallax2D" parent="Background" unique_id=1865071567]
-scroll_scale = Vector2(-0.5, -0.5)
+scroll_scale = Vector2(1.5, 1.5)
 
 [node name="Back Wall" type="Polygon2D" parent="Background/Background" unique_id=1644329619]
 scale = Vector2(0.6, 0.6)
@@ -57,127 +57,127 @@ scroll_scale = Vector2(1.5, 1.5)
 position = Vector2(-960, -540)
 
 [node name="PrizeCube" parent="Prizes" unique_id=596730560 instance=ExtResource("2_d5qak")]
-position = Vector2(1247, 871)
+position = Vector2(409, 871)
 
 [node name="PrizeCube2" parent="Prizes" unique_id=734799538 instance=ExtResource("2_d5qak")]
-position = Vector2(1182, 825)
+position = Vector2(344, 825)
 
 [node name="PrizeCube7" parent="Prizes" unique_id=2137778167 instance=ExtResource("2_d5qak")]
-position = Vector2(1242, 757)
+position = Vector2(404, 757)
 
 [node name="PrizeCube8" parent="Prizes" unique_id=1992422359 instance=ExtResource("2_d5qak")]
-position = Vector2(1202, 738)
+position = Vector2(364, 738)
 
 [node name="PrizeCube9" parent="Prizes" unique_id=410701952 instance=ExtResource("2_d5qak")]
-position = Vector2(1266, 722)
+position = Vector2(428, 722)
 
 [node name="PrizeCube3" parent="Prizes" unique_id=415654559 instance=ExtResource("2_d5qak")]
-position = Vector2(1295, 780)
+position = Vector2(457, 780)
 
 [node name="PrizeCube4" parent="Prizes" unique_id=1644867798 instance=ExtResource("2_d5qak")]
-position = Vector2(1231, 833)
+position = Vector2(393, 833)
 
 [node name="PrizeCube5" parent="Prizes" unique_id=488616169 instance=ExtResource("2_d5qak")]
-position = Vector2(1263, 794)
+position = Vector2(425, 794)
 
 [node name="PrizeCube6" parent="Prizes" unique_id=1312441725 instance=ExtResource("2_d5qak")]
-position = Vector2(1199, 783)
+position = Vector2(361, 783)
 
 [node name="PrizeCube10" parent="Prizes" unique_id=52919278 instance=ExtResource("2_d5qak")]
-position = Vector2(1164, 783)
+position = Vector2(326, 783)
 
 [node name="PrizeCube11" parent="Prizes" unique_id=2134708954 instance=ExtResource("2_d5qak")]
-position = Vector2(1099, 737)
+position = Vector2(261, 737)
 
 [node name="PrizeCube12" parent="Prizes" unique_id=292629329 instance=ExtResource("2_d5qak")]
-position = Vector2(1159, 669)
+position = Vector2(321, 669)
 
 [node name="PrizeCube13" parent="Prizes" unique_id=1737331940 instance=ExtResource("2_d5qak")]
-position = Vector2(1119, 650)
+position = Vector2(281, 650)
 
 [node name="PrizeCube14" parent="Prizes" unique_id=1537812971 instance=ExtResource("2_d5qak")]
-position = Vector2(1183, 634)
+position = Vector2(345, 634)
 
 [node name="PrizeCube15" parent="Prizes" unique_id=1275621406 instance=ExtResource("2_d5qak")]
-position = Vector2(1212, 692)
+position = Vector2(374, 692)
 
 [node name="PrizeCube16" parent="Prizes" unique_id=1588019232 instance=ExtResource("2_d5qak")]
-position = Vector2(1148, 745)
+position = Vector2(310, 745)
 
 [node name="PrizeCube17" parent="Prizes" unique_id=351596092 instance=ExtResource("2_d5qak")]
-position = Vector2(1180, 706)
+position = Vector2(342, 706)
 
 [node name="PrizeCube18" parent="Prizes" unique_id=317160802 instance=ExtResource("2_d5qak")]
-position = Vector2(1116, 695)
+position = Vector2(278, 695)
 
 [node name="PrizeCube19" parent="Prizes" unique_id=1024347054 instance=ExtResource("2_d5qak")]
-position = Vector2(1308, 750)
+position = Vector2(470, 750)
 
 [node name="PrizeCube20" parent="Prizes" unique_id=614927634 instance=ExtResource("2_d5qak")]
-position = Vector2(1243, 704)
+position = Vector2(405, 704)
 
 [node name="PrizeCube21" parent="Prizes" unique_id=1975255904 instance=ExtResource("2_d5qak")]
-position = Vector2(1303, 636)
+position = Vector2(465, 636)
 
 [node name="PrizeCube22" parent="Prizes" unique_id=1840752251 instance=ExtResource("2_d5qak")]
-position = Vector2(1263, 617)
+position = Vector2(425, 617)
 
 [node name="PrizeCube23" parent="Prizes" unique_id=657101978 instance=ExtResource("2_d5qak")]
-position = Vector2(1327, 601)
+position = Vector2(489, 601)
 
 [node name="PrizeCube24" parent="Prizes" unique_id=1630935203 instance=ExtResource("2_d5qak")]
-position = Vector2(1356, 659)
+position = Vector2(518, 659)
 
 [node name="PrizeCube25" parent="Prizes" unique_id=88463511 instance=ExtResource("2_d5qak")]
-position = Vector2(1292, 712)
+position = Vector2(454, 712)
 
 [node name="PrizeCube26" parent="Prizes" unique_id=2049040672 instance=ExtResource("2_d5qak")]
-position = Vector2(1324, 673)
+position = Vector2(486, 673)
 
 [node name="PrizeCube27" parent="Prizes" unique_id=149854153 instance=ExtResource("2_d5qak")]
-position = Vector2(1260, 662)
+position = Vector2(422, 662)
 
 [node name="PrizeCube28" parent="Prizes" unique_id=1787742128 instance=ExtResource("3_d5qak")]
-position = Vector2(1127, 787)
+position = Vector2(289, 787)
 
 [node name="PrizeCube29" parent="Prizes" unique_id=1973476707 instance=ExtResource("3_d5qak")]
-position = Vector2(1178, 734)
+position = Vector2(340, 734)
 
 [node name="PrizeCube30" parent="Prizes" unique_id=1371198912 instance=ExtResource("3_d5qak")]
-position = Vector2(1200, 660)
+position = Vector2(362, 660)
 
 [node name="PrizeCube31" parent="Prizes" unique_id=1099877801 instance=ExtResource("3_d5qak")]
-position = Vector2(1293, 673)
+position = Vector2(455, 673)
 
 [node name="PrizeCube32" parent="Prizes" unique_id=989210805 instance=ExtResource("3_d5qak")]
-position = Vector2(1327, 713)
+position = Vector2(489, 713)
 
 [node name="PrizeCube33" parent="Prizes" unique_id=2059243231 instance=ExtResource("3_d5qak")]
-position = Vector2(1229, 730)
+position = Vector2(391, 730)
 
 [node name="PrizeCube34" parent="Prizes" unique_id=1823301993 instance=ExtResource("3_d5qak")]
-position = Vector2(1231, 629)
+position = Vector2(393, 629)
 
 [node name="PrizeCube35" parent="Prizes" unique_id=159004607 instance=ExtResource("3_d5qak")]
-position = Vector2(1146, 703)
+position = Vector2(308, 703)
 
 [node name="PrizeCube36" parent="Prizes" unique_id=1179124764 instance=ExtResource("3_d5qak")]
-position = Vector2(1149, 633)
+position = Vector2(311, 633)
 
 [node name="PrizeCube37" parent="Prizes" unique_id=2124839634 instance=ExtResource("3_d5qak")]
-position = Vector2(1231, 789)
+position = Vector2(393, 789)
 
 [node name="PrizeCube38" parent="Prizes" unique_id=1326758078 instance=ExtResource("3_d5qak")]
-position = Vector2(1262, 837)
+position = Vector2(424, 837)
 
 [node name="PrizeCube39" parent="Prizes" unique_id=578640949 instance=ExtResource("3_d5qak")]
-position = Vector2(1273, 754)
+position = Vector2(435, 754)
 
 [node name="PrizeCube40" parent="Prizes" unique_id=900659684 instance=ExtResource("3_d5qak")]
-position = Vector2(1329, 638)
+position = Vector2(491, 638)
 
 [node name="PrizeCube41" parent="Prizes" unique_id=1502824367 instance=ExtResource("3_d5qak")]
-position = Vector2(1300, 608)
+position = Vector2(462, 608)
 
 [node name="ClawBase" parent="." unique_id=757047534 instance=ExtResource("1_lm8dk")]
 position = Vector2(730, -275)
@@ -185,13 +185,7 @@ position = Vector2(730, -275)
 [node name="Marker2D" parent="ClawBase" index="0" unique_id=1840563789]
 position = Vector2(-1460, 603)
 
-[node name="Camera2D" type="Camera2D" parent="ClawBase/ClawBase" parent_id_path=PackedInt32Array(757047534, 825254119) index="0" unique_id=451880069]
-position = Vector2(-422, 275)
-script = ExtResource("5_p567p")
-parallax_material = ExtResource("1_tm0tt")
-parallax_offset = Vector2(-960, -540)
-
-[node name="ClawBaseSprite" parent="ClawBase/ClawBase" parent_id_path=PackedInt32Array(757047534, 825254119) index="1" unique_id=1346891769]
+[node name="ClawBaseSprite" parent="ClawBase/ClawBase" parent_id_path=PackedInt32Array(757047534, 825254119) index="0" unique_id=1346891769]
 metadata/_edit_use_anchors_ = true
 
 [node name="Collision Bounds" type="StaticBody2D" parent="." unique_id=130705668]
@@ -210,5 +204,13 @@ shape = SubResource("WorldBoundaryShape2D_gnh25")
 position = Vector2(784, 40)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_gnh25")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=451880069 node_paths=PackedStringArray("scroll_target")]
+position = Vector2(128, 0)
+script = ExtResource("5_p567p")
+parallax_material = ExtResource("1_tm0tt")
+parallax_offset = Vector2(-960, -540)
+scroll_speed = 0.2
+scroll_target = NodePath("../ClawBase/ClawBase")
 
 [editable path="ClawBase"]
