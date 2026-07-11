@@ -4,4 +4,6 @@
 
 [resource]
 shader = ExtResource("1_x4qae")
-shader_parameter/CamPos = Vector2(0, 0)
+shader_parameter/cam_pos = Vector2(0, 0)
+shader_parameter/color_1 = Color(0, 0, 0, 1)
+shader_parameter/color_2 = Color(1, 1, 1, 1)

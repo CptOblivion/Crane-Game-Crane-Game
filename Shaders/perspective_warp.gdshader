@@ -1,21 +1,19 @@
 shader_type canvas_item;
 
-uniform vec2 CamPos;
+uniform vec2 cam_pos;
+
+uniform vec4 color_1: source_color = vec4(1.0);
+uniform vec4 color_2: source_color = vec4(1.0);
 
 void vertex() {
-	float scrollStrength = COLOR.x * 2.0 - 1.0;
-	vec2 offs = CamPos * scrollStrength;
+	float scrollStrength = 1.0 - COLOR.x * 2.0;
+	vec2 offs = cam_pos * scrollStrength;
 	vec2 origin = VERTEX.xy;
 	VERTEX.x = origin.x + offs.x;
 	VERTEX.y = origin.y + offs.y;
 }
 
 void fragment() {
-	// texture sample here
-	// or UV to color gradient
+	float t = UV.y;
+	COLOR = color_1 * (1.0-t) + color_2 * t;
 }
-
-//void light() {
-//	// Called for every pixel for every light affecting the material.
-//	// Uncomment to replace the default light processing function with this one.
-//}
