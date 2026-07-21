@@ -21,9 +21,12 @@ node_head = NodePath("Claw")
 node_claw_r = NodePath("ClawRight")
 node_claw_l = NodePath("ClawLeft")
 node_bounds = NodePath("Marker2D")
+travel_speed = 400.0
+timing_return_travel_speed = 400.0
 metadata/_custom_type_script = "uid://d0oc1mp2a3pfu"
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1840563789]
+scale = Vector2(2, 2)
 
 [node name="ClawBase" type="RigidBody2D" parent="." unique_id=825254119]
 physics_interpolation_mode = 2
@@ -35,79 +38,67 @@ continuous_cd = 2
 script = ExtResource("2_w2nsd")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
-[node name="ClawBaseSprite" type="ColorRect" parent="ClawBase" unique_id=1346891769]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -12.0
-offset_top = -12.0
-offset_right = 12.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 0.5)
+[node name="Polygon2D" type="Polygon2D" parent="ClawBase" unique_id=1381931376]
+polygon = PackedVector2Array(-24, -24, -24, 24, 24, 24, 24, -24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClawBase" unique_id=906650200]
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_vqpfe")
 
 [node name="Claw" type="RigidBody2D" parent="." unique_id=1214754592]
-position = Vector2(0, 48)
+position = Vector2(0, 96)
 mass = 0.1
 continuous_cd = 2
 linear_damp_mode = 1
-linear_damp = 5.0
-angular_damp = 5.0
+linear_damp = 3.0
+angular_damp = 3.0
 script = ExtResource("2_w2nsd")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
-[node name="ClawHinge" type="ColorRect" parent="Claw" unique_id=863951629]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 7.9999924
-rotation = 0.7853982
-pivot_offset_ratio = Vector2(0.5, 0.5)
-color = Color(0.14044744, 0.14044744, 0.14044744, 1)
-metadata/_edit_use_anchors_ = true
+[node name="Polygon2D" type="Polygon2D" parent="Claw" unique_id=1165223629]
+polygon = PackedVector2Array(0, -12, -9, -9, -12, 0, -9, 9, 0, 12, 9, 9, 12, 0, 9, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Claw" unique_id=1794345597]
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_n1u34")
 
 [node name="ClawRight" type="RigidBody2D" parent="." unique_id=1384130584]
-position = Vector2(0, 60)
+position = Vector2(0, 120)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_w2nsd")
 continuous_cd = 2
-linear_damp = 5.0
-angular_damp = 5.0
+linear_damp = 3.0
+angular_damp = 3.0
 script = ExtResource("2_w2nsd")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Polygon2D2" type="Polygon2D" parent="ClawRight" unique_id=680942288]
-position = Vector2(0, -60)
+position = Vector2(0, -120)
+scale = Vector2(2, 2)
 color = Color(0.5904411, 0.59044117, 0.5904411, 1)
 polygon = PackedVector2Array(42, 90, 42, 54, -6, 54, -6, 66, 30, 66, 30, 102)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClawRight" unique_id=145460001]
-position = Vector2(36, 0)
+position = Vector2(72, 0)
+scale = Vector2(2, 2)
 polygon = PackedVector2Array(-6, 6, -6, 42, 6, 30, 6, -6, -42, -6, -42, 6)
 
 [node name="ClawLeft" type="RigidBody2D" parent="." unique_id=451796077]
-position = Vector2(0, 60)
+position = Vector2(0, 120)
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_lns8u")
 continuous_cd = 2
-linear_damp = 5.0
-angular_damp = 5.0
+linear_damp = 3.0
+angular_damp = 3.0
 script = ExtResource("2_w2nsd")
 metadata/_custom_type_script = "uid://unwhnooi7g2c"
 
 [node name="Polygon2D" type="Polygon2D" parent="ClawLeft" unique_id=946733514]
-position = Vector2(0, -60)
+position = Vector2(0, -120)
+scale = Vector2(2, 2)
 polygon = PackedVector2Array(-42, 90, -42, 54, 6, 54, 6, 66, -30, 66, -30, 102)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ClawLeft" unique_id=1728135212]
-position = Vector2(-36, 0)
+position = Vector2(-72, 0)
+scale = Vector2(2, 2)
 polygon = PackedVector2Array(-6, -6, -6, 30, 6, 42, 6, 6, 42, 6, 42, -6)

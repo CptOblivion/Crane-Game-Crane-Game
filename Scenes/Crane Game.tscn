@@ -1,62 +1,74 @@
 [gd_scene format=3 uid="uid://c7a2e8x8xj4br"]
 
 [ext_resource type="PackedScene" uid="uid://dwucifly5eghi" path="res://Prefabs/claw.tscn" id="1_lm8dk"]
+[ext_resource type="Script" uid="uid://dv45afol27o3h" path="res://Scripts/parallax_2d_custom.gd" id="1_mjqvl"]
 [ext_resource type="Material" uid="uid://dt4gfde14yqib" path="res://Materials/perspective_warp.tres" id="1_tm0tt"]
 [ext_resource type="Texture2D" uid="uid://k8uehvj7vsho" path="res://1x1.png" id="2_8qwgw"]
 [ext_resource type="PackedScene" uid="uid://ds38hbwfvqyoy" path="res://Prefabs/prize_cube.tscn" id="2_d5qak"]
 [ext_resource type="PackedScene" uid="uid://d28rhgxjk0pb8" path="res://Prefabs/prize_ball.tscn" id="3_d5qak"]
+[ext_resource type="Script" uid="uid://cwey53vrjnnuj" path="res://Scripts/polygon_2d_fixed_bounds.gd" id="4_uaa55"]
 [ext_resource type="Script" uid="uid://w083uh74q5ee" path="res://Scripts/parallax_scroll.gd" id="5_p567p"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gnh25"]
 normal = Vector2(0, -10)
 
 [node name="Node2D" type="Node2D" unique_id=1430497347]
-position = Vector2(960, 540)
 
 [node name="Background" type="Node2D" parent="." unique_id=302695631]
 
-[node name="Background" type="Parallax2D" parent="Background" unique_id=1865071567]
+[node name="Background" type="Parallax2D" parent="Background" unique_id=429132344]
 scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(0, 150)
+script = ExtResource("1_mjqvl")
+metadata/_custom_type_script = "uid://dv45afol27o3h"
 
 [node name="Back Wall" type="Polygon2D" parent="Background/Background" unique_id=1644329619]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.5, 0.5)
 color = Color(0.16445974, 0.16445976, 0.16445974, 1)
-polygon = PackedVector2Array(-960, -540, -960, 540, 960, 540, 960, -540)
+polygon = PackedVector2Array(-1935, -540, -1935, 540, 1144, 540, 1144, -540)
 
-[node name="WallL" type="Polygon2D" parent="Background" unique_id=1412120864]
+[node name="WallL" type="Polygon2D" parent="Background" unique_id=1177340024]
 material = ExtResource("1_tm0tt")
-position = Vector2(-784, 2.0918378e-12)
-color = Color(0.16445974, 0.16445976, 0.16445974, 1)
-texture = ExtResource("2_8qwgw")
-polygon = PackedVector2Array(208, -324, 208, 324, -296, 540, -296, -540)
-uv = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
-vertex_colors = PackedColorArray(0.25, 0.25, 0.25, 1, 0.2509804, 0.2509804, 0.2509804, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-
-[node name="WallR" type="Polygon2D" parent="Background" unique_id=201093487]
-material = ExtResource("1_tm0tt")
-position = Vector2(784, -3.1529152e-12)
+position = Vector2(-1935, 2.0918378e-12)
 color = Color(0.16445974, 0.16445976, 0.16445974, 1)
 texture = ExtResource("2_8qwgw")
-polygon = PackedVector2Array(-208, -324, -208, 324, 296, 540, 296, -540)
+polygon = PackedVector2Array(0, -540, 0, 540, 0, 540, 0, -540)
 uv = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
-vertex_colors = PackedColorArray(0.25, 0.25, 0.25, 1, 0.2509804, 0.2509804, 0.2509804, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+vertex_colors = PackedColorArray(0.5, 0.5, 0.5, 1, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+script = ExtResource("4_uaa55")
+metadata/_custom_type_script = "uid://cwey53vrjnnuj"
 
-[node name="Floor" type="Polygon2D" parent="Background" unique_id=1840184428]
+[node name="WallR" type="Polygon2D" parent="Background" unique_id=1753927189]
 material = ExtResource("1_tm0tt")
-position = Vector2(0, 413)
+position = Vector2(1144, 0)
 color = Color(0.16445974, 0.16445976, 0.16445974, 1)
 texture = ExtResource("2_8qwgw")
-polygon = PackedVector2Array(-576, -89, 576, -89, 1080, 127, -1080, 127)
+polygon = PackedVector2Array(0, -540, 0, 540, 0, 540, 0, -540)
 uv = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
-vertex_colors = PackedColorArray(0.25, 0.25, 0.25, 1, 0.2509804, 0.2509804, 0.2509804, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+vertex_colors = PackedColorArray(0.5, 0.5, 0.5, 1, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+script = ExtResource("4_uaa55")
+metadata/_custom_type_script = "uid://cwey53vrjnnuj"
 
-[node name="Ceiling" type="Polygon2D" parent="Background" unique_id=1029569585]
+[node name="Floor" type="Polygon2D" parent="Background" unique_id=720248487]
 material = ExtResource("1_tm0tt")
-position = Vector2(0, -413)
+position = Vector2(-396, 540)
+color = Color(0.16445974, 0.16445976, 0.16445974, 1)
 texture = ExtResource("2_8qwgw")
-polygon = PackedVector2Array(-576, 89, 576, 89, 1080, -127, -1080, -127)
+polygon = PackedVector2Array(-1540, 0, 1540, 0, 1540, 0, -1540, 0)
 uv = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
-vertex_colors = PackedColorArray(0.25, 0.25, 0.25, 1, 0.2509804, 0.2509804, 0.2509804, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+vertex_colors = PackedColorArray(0.5, 0.5, 0.5, 1, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+script = ExtResource("4_uaa55")
+metadata/_custom_type_script = "uid://cwey53vrjnnuj"
+
+[node name="Ceiling" type="Polygon2D" parent="Background" unique_id=1941895002]
+material = ExtResource("1_tm0tt")
+position = Vector2(-395, -540)
+texture = ExtResource("2_8qwgw")
+polygon = PackedVector2Array(-1540, 0, 1540, 0, 1540, 0, -1540, 0)
+uv = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+vertex_colors = PackedColorArray(0.5, 0.5, 0.5, 1, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+script = ExtResource("4_uaa55")
+metadata/_custom_type_script = "uid://cwey53vrjnnuj"
 
 [node name="Foreground" type="Parallax2D" parent="Background" unique_id=1638934832]
 scroll_scale = Vector2(1.5, 1.5)
@@ -74,151 +86,147 @@ position = Vector2(344, 825)
 position = Vector2(404, 757)
 
 [node name="PrizeCube8" parent="Prizes" unique_id=1992422359 instance=ExtResource("2_d5qak")]
-position = Vector2(364, 738)
+position = Vector2(336, 738)
 
 [node name="PrizeCube9" parent="Prizes" unique_id=410701952 instance=ExtResource("2_d5qak")]
-position = Vector2(428, 722)
+position = Vector2(611, 824)
 
 [node name="PrizeCube3" parent="Prizes" unique_id=415654559 instance=ExtResource("2_d5qak")]
 position = Vector2(457, 780)
 
 [node name="PrizeCube4" parent="Prizes" unique_id=1644867798 instance=ExtResource("2_d5qak")]
-position = Vector2(393, 833)
+position = Vector2(413, 821)
 
 [node name="PrizeCube5" parent="Prizes" unique_id=488616169 instance=ExtResource("2_d5qak")]
-position = Vector2(425, 794)
+position = Vector2(572, 894)
 
 [node name="PrizeCube6" parent="Prizes" unique_id=1312441725 instance=ExtResource("2_d5qak")]
 position = Vector2(361, 783)
 
 [node name="PrizeCube10" parent="Prizes" unique_id=52919278 instance=ExtResource("2_d5qak")]
-position = Vector2(326, 783)
+position = Vector2(296, 782)
 
 [node name="PrizeCube11" parent="Prizes" unique_id=2134708954 instance=ExtResource("2_d5qak")]
-position = Vector2(261, 737)
+position = Vector2(179, 756)
 
 [node name="PrizeCube12" parent="Prizes" unique_id=292629329 instance=ExtResource("2_d5qak")]
-position = Vector2(321, 669)
+position = Vector2(270, 665)
 
 [node name="PrizeCube13" parent="Prizes" unique_id=1737331940 instance=ExtResource("2_d5qak")]
-position = Vector2(281, 650)
+position = Vector2(184, 628)
 
 [node name="PrizeCube14" parent="Prizes" unique_id=1537812971 instance=ExtResource("2_d5qak")]
-position = Vector2(345, 634)
+position = Vector2(321, 575)
 
 [node name="PrizeCube15" parent="Prizes" unique_id=1275621406 instance=ExtResource("2_d5qak")]
 position = Vector2(374, 692)
 
 [node name="PrizeCube16" parent="Prizes" unique_id=1588019232 instance=ExtResource("2_d5qak")]
-position = Vector2(310, 745)
+position = Vector2(175, 814)
 
 [node name="PrizeCube17" parent="Prizes" unique_id=351596092 instance=ExtResource("2_d5qak")]
-position = Vector2(342, 706)
+position = Vector2(98, 742)
 
 [node name="PrizeCube18" parent="Prizes" unique_id=317160802 instance=ExtResource("2_d5qak")]
-position = Vector2(278, 695)
+position = Vector2(175, 683)
 
 [node name="PrizeCube19" parent="Prizes" unique_id=1024347054 instance=ExtResource("2_d5qak")]
-position = Vector2(470, 750)
+position = Vector2(541, 775)
 
 [node name="PrizeCube20" parent="Prizes" unique_id=614927634 instance=ExtResource("2_d5qak")]
-position = Vector2(405, 704)
+position = Vector2(344, 888)
 
 [node name="PrizeCube21" parent="Prizes" unique_id=1975255904 instance=ExtResource("2_d5qak")]
-position = Vector2(465, 636)
+position = Vector2(472, 612)
 
 [node name="PrizeCube22" parent="Prizes" unique_id=1840752251 instance=ExtResource("2_d5qak")]
-position = Vector2(425, 617)
+position = Vector2(405, 567)
 
 [node name="PrizeCube23" parent="Prizes" unique_id=657101978 instance=ExtResource("2_d5qak")]
-position = Vector2(489, 601)
+position = Vector2(519, 569)
 
 [node name="PrizeCube24" parent="Prizes" unique_id=1630935203 instance=ExtResource("2_d5qak")]
-position = Vector2(518, 659)
+position = Vector2(594, 711)
 
 [node name="PrizeCube25" parent="Prizes" unique_id=88463511 instance=ExtResource("2_d5qak")]
-position = Vector2(454, 712)
+position = Vector2(479, 725)
 
 [node name="PrizeCube26" parent="Prizes" unique_id=2049040672 instance=ExtResource("2_d5qak")]
-position = Vector2(486, 673)
+position = Vector2(613, 643)
 
 [node name="PrizeCube27" parent="Prizes" unique_id=149854153 instance=ExtResource("2_d5qak")]
 position = Vector2(422, 662)
 
 [node name="PrizeCube28" parent="Prizes" unique_id=1787742128 instance=ExtResource("3_d5qak")]
-position = Vector2(289, 787)
+position = Vector2(241, 792)
 
 [node name="PrizeCube29" parent="Prizes" unique_id=1973476707 instance=ExtResource("3_d5qak")]
-position = Vector2(340, 734)
+position = Vector2(288, 722)
 
 [node name="PrizeCube30" parent="Prizes" unique_id=1371198912 instance=ExtResource("3_d5qak")]
-position = Vector2(362, 660)
+position = Vector2(326, 626)
 
 [node name="PrizeCube31" parent="Prizes" unique_id=1099877801 instance=ExtResource("3_d5qak")]
-position = Vector2(455, 673)
+position = Vector2(500, 679)
 
 [node name="PrizeCube32" parent="Prizes" unique_id=989210805 instance=ExtResource("3_d5qak")]
-position = Vector2(489, 713)
+position = Vector2(532, 720)
 
 [node name="PrizeCube33" parent="Prizes" unique_id=2059243231 instance=ExtResource("3_d5qak")]
-position = Vector2(391, 730)
+position = Vector2(326, 674)
 
 [node name="PrizeCube34" parent="Prizes" unique_id=1823301993 instance=ExtResource("3_d5qak")]
-position = Vector2(393, 629)
+position = Vector2(383, 620)
 
 [node name="PrizeCube35" parent="Prizes" unique_id=159004607 instance=ExtResource("3_d5qak")]
-position = Vector2(308, 703)
+position = Vector2(237, 720)
 
 [node name="PrizeCube36" parent="Prizes" unique_id=1179124764 instance=ExtResource("3_d5qak")]
-position = Vector2(311, 633)
+position = Vector2(240, 571)
 
 [node name="PrizeCube37" parent="Prizes" unique_id=2124839634 instance=ExtResource("3_d5qak")]
-position = Vector2(393, 789)
+position = Vector2(260, 879)
 
 [node name="PrizeCube38" parent="Prizes" unique_id=1326758078 instance=ExtResource("3_d5qak")]
-position = Vector2(424, 837)
+position = Vector2(526, 844)
 
 [node name="PrizeCube39" parent="Prizes" unique_id=578640949 instance=ExtResource("3_d5qak")]
-position = Vector2(435, 754)
+position = Vector2(469, 849)
 
 [node name="PrizeCube40" parent="Prizes" unique_id=900659684 instance=ExtResource("3_d5qak")]
-position = Vector2(491, 638)
+position = Vector2(521, 631)
 
 [node name="PrizeCube41" parent="Prizes" unique_id=1502824367 instance=ExtResource("3_d5qak")]
-position = Vector2(462, 608)
+position = Vector2(461, 562)
 
 [node name="ClawBase" parent="." unique_id=757047534 instance=ExtResource("1_lm8dk")]
-position = Vector2(730, -275)
+position = Vector2(730, -479)
 
 [node name="Marker2D" parent="ClawBase" index="0" unique_id=1840563789]
-position = Vector2(-1460, 603)
-
-[node name="ClawBaseSprite" parent="ClawBase/ClawBase" parent_id_path=PackedInt32Array(757047534, 825254119) index="0" unique_id=1346891769]
-metadata/_edit_use_anchors_ = true
+position = Vector2(-2279, 700)
 
 [node name="Collision Bounds" type="StaticBody2D" parent="." unique_id=130705668]
 position = Vector2(0, 373)
 
 [node name="Floor" type="CollisionShape2D" parent="Collision Bounds" unique_id=1994467480]
-position = Vector2(0, 40)
+position = Vector2(0, 103)
 shape = SubResource("WorldBoundaryShape2D_gnh25")
 
 [node name="WallL" type="CollisionShape2D" parent="Collision Bounds" unique_id=634408038]
-position = Vector2(-784, 40)
+position = Vector2(-1638, 40)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_gnh25")
 
 [node name="WallR" type="CollisionShape2D" parent="Collision Bounds" unique_id=678807039]
-position = Vector2(784, 40)
+position = Vector2(839, 35)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_gnh25")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=451880069 node_paths=PackedStringArray("scroll_target")]
-position = Vector2(128, 0)
 script = ExtResource("5_p567p")
 parallax_material = ExtResource("1_tm0tt")
-parallax_offset = Vector2(-960, -540)
-scroll_speed = 0.2
+scroll_speed = 0.4
 scroll_target = NodePath("../ClawBase/ClawBase")
+horizon = 300.0
 
 [editable path="ClawBase"]

@@ -4,6 +4,7 @@ extends Camera2D
 @export var parallax_offset: Vector2
 @export var scroll_speed: float
 @export var scroll_target: Node2D
+@export var horizon: float
 
 var start_pos: Vector2
 var target_start_pos: Vector2
@@ -16,5 +17,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	parallax_material.set_shader_parameter("cam_pos", global_position + parallax_offset)
+	parallax_material.set_shader_parameter("cam_pos", global_position + parallax_offset + Vector2(0, horizon))
 	position = start_pos + (scroll_target.position - target_start_pos) * scroll_speed
