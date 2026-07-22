@@ -36,6 +36,7 @@ enum State {
 @export var timing_grabbed_pause_time: float = 0.5
 @export var timing_return_raise_speed: float = 200.0
 @export var timing_return_travel_speed: float = 200.0
+@export var timing_home_delta: float = 0.0005
 @export var timing_returned_pause_time: float = 1.5
 @export var timing_drop_time: float = 0.5
 @export var timing_return_slide_delay = 1.5
@@ -74,7 +75,7 @@ func _physics_process(delta: float) -> void:
 		State.controllable:
 			var input_direction = Input.get_axis("move_left", "move_right")
 			var vel = input_direction * travel_speed * delta
-			if node_base.position.x + vel > 0:
+			if node_base.position.x + vel > origin.x:
 				vel = - node_base.position.x
 			elif node_base.position.x + vel < node_bounds.position.x:
 				vel = node_bounds.position.x - node_base.position.x
@@ -102,11 +103,12 @@ func _physics_process(delta: float) -> void:
 				set_chain_length(claw_home)
 			if state_timer > timing_return_slide_delay:
 				var vel = timing_return_travel_speed * delta
-				if node_base.position.x + vel > 0:
+				if node_base.position.x + vel > origin.x:
 						vel = - node_base.position.x
 				node_base.move_and_collide(Vector2(vel, 0))
-				if node_base.position == origin && chain.distance == claw_home:
+				if (node_base.position.x > origin.x - timing_home_delta && node_base.position.x < origin.x + timing_home_delta) && chain.distance == claw_home:
 					set_state(State.returned)
+			print(node_base.position.x)
 		State.returned:
 			if state_timer >= timing_returned_pause_time:
 				set_state(State.dropping)
