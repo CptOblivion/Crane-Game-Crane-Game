@@ -1,9 +1,15 @@
-extends Parallax2D
+extends Node2D
 
 class_name Parallax2DCustom
 
-# Called when the node enters the scene tree for the first time.
+@export var scroll_scale: float = 1
+
+var start_position: Vector2
+var start_camera_position: Vector2
+
 func _ready() -> void:
-	# an extra offset of half the screen * scroll scale is applied when the game is running, but not in the editor
-	# make it look right in the editor, this code counteracts the extra offset
-	scroll_offset += (Vector2)(get_viewport().size) / 2 * scroll_scale
+	start_position = position
+	start_camera_position = get_viewport().get_camera_2d().position
+
+func _process(_delta: float) -> void:
+	position = start_position + (get_viewport().get_camera_2d().position - start_camera_position) * scroll_scale
