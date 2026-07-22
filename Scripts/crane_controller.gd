@@ -38,7 +38,7 @@ enum State {
 @export var timing_return_travel_speed: float = 200.0
 @export var timing_returned_pause_time: float = 1.5
 @export var timing_drop_time: float = 0.5
-@export var timingg_return_slide_delay = 1.5
+@export var timing_return_slide_delay = 1.5
 
 var state: State = State.controllable
 # var chain: RapierDampedSpringJoint2D
@@ -100,11 +100,12 @@ func _physics_process(delta: float) -> void:
 			set_chain_length(chain.distance - timing_return_raise_speed * delta)
 			if chain.distance <= claw_home:
 				set_chain_length(claw_home)
-			if state_timer > timingg_return_slide_delay:
-				node_base.move_and_collide(Vector2(timing_return_travel_speed * delta, 0))
-				if node_base.position.x >= origin.x:
-					node_base.position.x = origin.x
-				if node_base.position == origin and chain.distance == claw_home:
+			if state_timer > timing_return_slide_delay:
+				var vel = timing_return_travel_speed * delta
+				if node_base.position.x + vel > 0:
+						vel = - node_base.position.x
+				node_base.move_and_collide(Vector2(vel, 0))
+				if node_base.position == origin && chain.distance == claw_home:
 					set_state(State.returned)
 		State.returned:
 			if state_timer >= timing_returned_pause_time:
