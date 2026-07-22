@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 			var input_direction = Input.get_axis("move_left", "move_right")
 			var vel = input_direction * travel_speed * delta
 			if node_base.position.x + vel > 0:
-				vel = node_base.position.x
+				vel = - node_base.position.x
 			elif node_base.position.x + vel < node_bounds.position.x:
 				vel = node_bounds.position.x - node_base.position.x
 			node_base.move_and_collide(Vector2(vel, 0))
